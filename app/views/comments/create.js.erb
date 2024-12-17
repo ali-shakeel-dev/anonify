@@ -1,0 +1,5 @@
+var newCommentHtml = "<%= j(render @comment) %>";
+document.getElementById("comments_container").innerHTML += newCommentHtml;
+
+// Optionally clear the input field
+document.getElementById("comment_content").value = "";

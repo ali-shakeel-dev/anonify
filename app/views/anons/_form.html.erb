@@ -1,0 +1,35 @@
+<div class="flex items-center justify-center py-4 gap-10">
+  <div class="w-[35rem]">
+    <section class="text-gray-600 body-font">
+      <div>
+        <h1 class="font-bold text-4xl w-full text-center py-4">
+          <%= @anon.new_record? ? "Create & Publish Anon (Anonymously)" : "Edit Anon" %>
+        </h1>
+        <div>
+          <%= form_with(model: @anon) do |form| %>
+            <div class="rounded-3xl">
+              <div class="flex flex-wrap">
+                <div class="p-2 w-full">
+                  <div class="relative">
+                    <%= form.label :title, class: "leading-7 text-sm text-gray-600" %>
+                    <%= form.text_field :title, id: "title", class: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out", placeholder: "Enter anon title", required: true %>
+                  </div>
+                </div>
+                <div class="p-2 w-full">
+                  <div class="relative">
+                    <%= form.label :description, class: "leading-7 text-sm text-gray-600" %>
+                    <%= form.text_area :description, id: "description", class: "w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 p-4 resize-none leading-6 transition-colors duration-200 ease-in-out", placeholder: "Enter a description", required: true %>
+                  </div>
+                </div>
+                <div class="p-2 w-full flex justify-center">
+                  <!-- Change the button text dynamically -->
+                  <%= form.submit @anon.new_record? ? 'Create Anon' : 'Update Anon', class: "cursor-pointer mx-auto inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
